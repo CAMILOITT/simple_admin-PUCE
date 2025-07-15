@@ -5,7 +5,12 @@ class RegistroProfesores:
   # lista de estudiantes
   # contraseña
   cuentas = {
-    "camiloitt": {"nombre": "Camilo Torres", "materia": "Matematicas", "lista_estudiantes": [], "contrasena": "12345"}
+    "camiloitt": {
+      "nombre": "Camilo Torres",
+      "materia": "Matematicas",
+      "lista_estudiantes": [{"nombre": "Camilo Torres", "examen1": 5, "examen2": 3, "examen_recuperacion": 6}],
+      "contrasena": "12345",
+    }
   }
 
   def __init__(self):
@@ -40,9 +45,16 @@ class RegistroProfesores:
     return username
 
   def iniciar_session(self, user, contrasena):
-    
+    if user in self.cuentas and self.cuentas[user]["contrasena"] == contrasena:
+      return self.cuentas[user]
+    return None
 
 
 class Profesor:
-  def __init__(self, informacion_profesor):
-    self.informacion_profesor = informacion_profesor
+  informacion = {}
+
+  def __init__(self, datos):
+    self.informacion = datos
+
+  def obtener_lista_alumnos(self):
+    return self.informacion["materia"]
