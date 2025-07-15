@@ -10,7 +10,7 @@ class App(tk.Tk):
   def __init__(self):
     super().__init__()
     self.title("Demo App")
-    self.geometry("700x400")
+    self.geometry("900x500")
     self.frames = {}
     paginas = [IniciarSession, PaginaInicio]
 
